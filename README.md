@@ -13,14 +13,17 @@ Hangman is an application allowing the user six chances to guess the generated w
 
 |   Behavior Description        |
 |-------------------------------|
-| 1. Generate word to guess(API? or list) []|
-| 2 As a user, I want to see the length of the word first. (Displayed with underscores)[]|
+| 1. Generate a word to guess from master list of words (obj) []|
+| 2. As a user, I want to see the length of the word first. (Displayed with underscores)[]|
 | 3. As a user, I want to click letters. (buttons? onClick func?) []|
 | 4. If the word has the letter(s) that I click, it will show up in the word. []|
 | 5. If the word does not have the letter(s) that I click, it will add a body part to a hangman. []|
-| 6. I can choose wrong letters only 5 times. []|
-| 7. When I guess wrong letters 6 times, I lose. (show result?) []|
-| 7. As a user, I want to be notified when I win or lose. []|
+| 6. User may click "hint" button to display clue of what hidden word is. []|
+| 7. I can choose wrong letters only 5 times. []|
+| 8. When I guess wrong letters 6 times, I lose. (show result?) []|
+| 9. As a user, I want to be notified when I win or lose. []|
+| 10. As a user, I want to see the answer when I lose. []|
+| 11. When the game ends, I want to see 'Play again?' button. []|
 
 <hr />
 
