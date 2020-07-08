@@ -5,28 +5,26 @@ import Words from './Words';
 import BlankLetters from './BlankLetters';
 import _ from 'underscore';
 import PropTypes from 'prop-types';
+import * as kiwi from '../actions';
+import { connect } from 'react-redux';
+
 
 class GameControl extends React.Component {
-  
   
   constructor(props) {
     super(props)
     this.state = {
-      currentWord: null,
-      currentHint: null,
+      
     }
     // this.newGame = this.newGame.bind(this)
   }
   
 
-  // newGame(props) {
-  //   const secretWord = randomKey.word;
-  //   const secretHint = randomKey.hint;
-  //   this.setState({
-  //     currentWord: secretWord,
-  //     currentHint: secretHint
-  //   })
-  // }
+  newGame = () => {
+    const { dispatch } = this.props;
+    const secretWord = kiwi.getWord();
+    dispatch(secretWord);
+  }
 
  
     
@@ -35,16 +33,16 @@ class GameControl extends React.Component {
     return(
       <React.Fragment>
         <div>
-          <BlankLetters
+          {/* <BlankLetters
           word={this.state.word}
           reveal={this.state.over}
-          guesses={this.state.guesses}/>
+          guesses={this.state.guesses}/> */}
         </div>
         <div>
-          {this.state.currentWord}
+          {this.props.word}
         </div>
         <div>
-          {this.state.currentHint}
+          {this.props.hint}
         </div>
         <button onClick={this.getHint}>Hint</button>
         <button onClick={this.newGame}>New Game</button>
@@ -52,6 +50,21 @@ class GameControl extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    word: state.word.word,
+    hint: state.word.hint
+  }
+}
+
+GameControl = connect(mapStateToProps)(GameControl)
+
+GameControl.propTypes = {
+  word: PropTypes.string,
+  hint: PropTypes.string
+};
+
 
 
 export default GameControl;
