@@ -1,12 +1,13 @@
 import React from 'react';
-import HangmanBody from './HangmanBody';
+// import HangmanBody from './HangmanBody';
 import LetterBoard from './LetterBoard';
+// import Letter from './Letter';
 import Words from './Words';
-import BlankLetters from './BlankLetters';
 import _ from 'underscore';
 import PropTypes from 'prop-types';
 import * as kiwi from '../actions';
 import { connect } from 'react-redux';
+import { images } from "./Images";
 
 
 class GameControl extends React.Component {
@@ -14,11 +15,11 @@ class GameControl extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      correctGuesses: 0
-    }
-    
+      correctGuesses: 0,
+      hintDisplay: false
+    };
+    this.getHint = this.getHint.bind(this);
   }
-  
 
   newGame = () => {
     const { dispatch } = this.props;
@@ -28,23 +29,27 @@ class GameControl extends React.Component {
     dispatch(secondAction);
     const thirdAction = kiwi.resetWrongGuesses();
     dispatch(thirdAction);
+    this.setState({
+      hintDisplay: false
+    })
   }
 
   getHint = () => {
-    const { dispatch } = this.props;
-    const theHint = this.props.hint; // need to fix this
-    dispatch(theHint)
+    console.log('clicked')
+    this.setState({
+      hintDisplay: true
+    })
   }
 
   secretWord(){
-    return this.props.word.split('').map(letter => (this.props.guesses.has(letter) ? letter : " _ "));
+    return this.props.word.split("").map(letter => (this.props.guesses.has(letter) ? letter : " _ "));
   };
 
   handleGuess = (letter) => {
-    const { dipatch } = this.props;
+    const { dispatch } = this.props;
     const firstAction = kiwi.addGuess(letter);
     dispatch(firstAction);
-    const secondAction = this.props.word.includes(letter) ? kiwi.wrongGuess(0) : kiwi.wrongGuess(1);
+    const secondAction = this.props.word.includes(letter) ? kiwi.addWrongGuess(0) : kiwi.addWrongGuess(1);
     dispatch(secondAction);
     if(this.props.word.includes(letter)){
       const updatedCount = this.state.correctGuesses += 1;
@@ -53,8 +58,13 @@ class GameControl extends React.Component {
   };
 
   render() {
-    const gameOverWin = this.secretWord().join('') === this.props.word;
-    const gameOverLose = this.props.wrongGuess >= 6;
+    let hintDisplayState = null;
+    if (this.state.hintDisplay === true){
+      hintDisplayState = this.props.hint
+    }
+    
+    const gameOverWin = this.secretWord().join("") === this.props.word;
+    const gameOverLose = this.props.wrongGuesses >= 6;
     const gameOver = gameOverWin || gameOverLose;
 
     let gameStatus;
@@ -66,45 +76,50 @@ class GameControl extends React.Component {
     }
 
     return(
+      
       <React.Fragment>
-        <div className="imageCard">
-          <image src={images[this.props.wrongGuess]} alt="hangman"></image>
-        </div>
-        <div>
-          <p>{!gameOver ? this.secretWord() : this.props.word}</p>
-          {!gameOver ? <LetterBoard guessedLetters={this.props.guesses} onLetterClick={this.handleGuess} /> : <p>Game Over</p>}
+        <div className='container'>
+          <div className="imageCard">
+            <image src={images[this.props.wrongGuesses]} alt="hangman"/>
+            {console.log(this.props.wrongGuesses)}
+          </div>
+          <div>
+            <p>{!gameOver ? this.secretWord() : this.props.word && this.props.word}</p>
+            
+            {!gameOver ? <LetterBoard guessedLetters={this.props.guesses} onLetterClick={this.handleGuess} /> : <p>Game Over</p>}
 
-          <p>{gameStatus}</p>
+            <p>{gameStatus}</p>
+          </div>
+          
+          <div className="hint">
+            {hintDisplayState}
+          </div>
+          
+          <button onClick={this.getHint}>Hint</button>
+          <button onClick={this.newGame}>New Game</button>
         </div>
-        <div>
-          {this.props.word}
-        </div>
-        {/* <div>
-          {this.props.hint}
-        </div> */}
-        <button onClick={this.getHint}>Hint</button>
-        <button onClick={this.newGame}>New Game</button>
       </React.Fragment>
     );
   }
-}
-
-const mapStateToProps = state => {
-  return {
-    guesses: state.guesses,
-    word: state.word.word,
-    hint: state.word.hint
-  }
-}
-
-GameControl = connect(mapStateToProps)(GameControl)
+} 
 
 GameControl.propTypes = {
   guesses: PropTypes.object,
   word: PropTypes.string,
-  hint: PropTypes.string
+  hint: PropTypes.string,
+  wrongGuesses: PropTypes.number
 };
 
+const mapStateToProps = (state) => {
+  return {
+    guesses: state.guesses,
+    word: state.word.word,
+    hint: state.word.hint,
+    wrongGuesses: state.wrongGuesses
+  }
+}
+
+GameControl = connect(mapStateToProps)(GameControl)
 
 export default GameControl;
 

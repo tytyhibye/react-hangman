@@ -37,6 +37,6 @@ export const wordList = [
 
 export const getWord = ()=> {
   const randomKey =  _.sample(wordList);
-  return randomKey;
+  return randomKey; //obj
 };
 

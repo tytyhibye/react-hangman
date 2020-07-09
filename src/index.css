@@ -1,4 +1,5 @@
 body {
+  text-align: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,6 +7,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #2CA58D;
+}
+
+.container{
+  float: center;
+}
+
+.imageCard {
+  margin-top: '2%';
+  display: 'flex';
+  flex-direction: column;
+  justify-content: 'space-around';
+  align-items: 'center';
+  width: 400px;
+  height: 600px;
+  background-image: url('../src/img/pole.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 code {
