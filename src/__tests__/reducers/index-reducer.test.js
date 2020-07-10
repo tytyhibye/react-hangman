@@ -15,8 +15,8 @@ describe('rootReducer', ()=> {
       guesses: new Set([]),
       wrongGuesses: 0,
       word: {
-        hint: 'Murukami',
-        word: 'chisato',
+        hint: 'The "tubular" of coding',
+        word: 'modularity',
       },
     });
   });

@@ -6,7 +6,7 @@ export const wordList = [
     hint: 'Instructor'
   },
   { 
-    word:'hello',
+    word:'bonjour',
     hint: 'Greeting'
   }, 
   {
@@ -14,7 +14,7 @@ export const wordList = [
     hint: 'Afternoon drink'
   },
   { 
-    word:'code',
+    word:'javascript',
     hint: 'Computer language'
   },
   { 
@@ -32,6 +32,34 @@ export const wordList = [
   { 
     word:'coffee',
     hint: 'Morning drink'
+  },
+  { 
+    word:'computer',
+    hint: 'machine in which all things are possible'
+  },
+  { 
+    word:'leilani',
+    hint: 'Instructor'
+  },
+  { 
+    word:'supercalifragilisticexpealodocious',
+    hint: 'Even though the sound of it is something quite atrocious'
+  },
+  { 
+    word:'component',
+    hint: 'keeps react modular'
+  },
+  { 
+    word:'abstraction',
+    hint: 'Makes code re-usable'
+  },
+  { 
+    word:'dictionary',
+    hint: 'A list of pairs'
+  },
+  { 
+    word:'modelviewcontroller',
+    hint: 'MVC'
   },
 ];
 
