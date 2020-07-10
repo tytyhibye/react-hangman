@@ -6,24 +6,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #2CA58D;
+  background-color: white;
+  /* background-image: url('https://sep.yimg.com/ay/scrapyourtrip/wild-west-wanted-sign-photo-frame-laser-die-cut-45.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
 }
 
+
 .container{
-  float: center;
+  margin: 10%;
 }
 
 .imageCard {
-  margin-top: '2%';
-  display: 'flex';
-  flex-direction: column;
-  justify-content: 'space-around';
-  align-items: 'center';
-  width: 400px;
-  height: 600px;
+  width: 40vh;
+  height: 60vh;
   background-image: url('../src/img/pole.jpg');
   background-size: contain;
   background-repeat: no-repeat;
+  margin: 0 auto;
+  
+}
+
+.hangMan {
+  margin-top: 30%;
+  width: 100px;
+  height: auto;
 }
 
 code {

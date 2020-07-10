@@ -3,12 +3,15 @@ import React from 'react';
 import '../App.css';
 import Header from "./Header";
 import GameControl from './GameControl';
+import { Container } from 'reactstrap';
 
 function App() {
   return (
     <React.Fragment>
-      <Header />
-      <GameControl/>
+      <Container>
+        <Header />
+        <GameControl/>
+      </Container>
     </React.Fragment>
   );
 }

@@ -1,14 +1,12 @@
-import React from 'react';
-// import HangmanBody from './HangmanBody';
-import LetterBoard from './LetterBoard';
-// import Letter from './Letter';
-import Words from './Words';
 import _ from 'underscore';
+import React from 'react';
+import LetterBoard from './LetterBoard';
 import PropTypes from 'prop-types';
 import * as kiwi from '../actions';
+import { Button, Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { images } from "./Images";
-
+// import Words from './Words';
 
 class GameControl extends React.Component {
   
@@ -69,35 +67,33 @@ class GameControl extends React.Component {
 
     let gameStatus;
     if(gameOverWin) {
-      gameStatus = "You saved the day!";
+      gameStatus = <h2>You saved the day!</h2>;
     }
     if (gameOverLose) {
-      gameStatus = "Better luck next time!";
+      gameStatus = <h2>Better luck next time!</h2>;
     }
 
     return(
-      
       <React.Fragment>
-        <div className='container'>
+        <Container className="container">
           <div className="imageCard">
-            <image src={images[this.props.wrongGuesses]} alt="hangman"/>
+            <img className="hangMan" src={images[this.props.wrongGuesses]}alt="hangman"/>
             {console.log(this.props.wrongGuesses)}
           </div>
           <div>
-            <p>{!gameOver ? this.secretWord() : this.props.word && this.props.word}</p>
+            <p>Wrong Guesses: {this.props.wrongGuesses} / 6</p>
+            <p>{!gameOver ? this.secretWord() : <p></p>}</p> 
             
-            {!gameOver ? <LetterBoard guessedLetters={this.props.guesses} onLetterClick={this.handleGuess} /> : <p>Game Over</p>}
+            {!gameOver ? <LetterBoard guessedLetters={this.props.guesses} onLetterClick={this.handleGuess} /> : <h3>The word was... {this.props.word}</h3>}
 
             <p>{gameStatus}</p>
           </div>
-          
           <div className="hint">
             {hintDisplayState}
           </div>
-          
-          <button onClick={this.getHint}>Hint</button>
-          <button onClick={this.newGame}>New Game</button>
-        </div>
+          <Button variant='success' onClick={this.getHint}>Hint</Button>
+          <Button variant='dark' onClick={this.newGame}>New Game</Button>
+        </Container>
       </React.Fragment>
     );
   }
