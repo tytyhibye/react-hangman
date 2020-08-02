@@ -1,0 +1,25 @@
+/* media queries */
+
+/*Phones*/
+@media (max-width: 576px) {
+
+  .container{
+    margin-top: 20%;
+    min-width: 100vw;
+    margin: 0 auto;
+  }
+  .imageCard {
+    min-width: 70vw;
+  }
+
+  .hangMan {
+    margin-top: 30%;
+    margin-right: 10%;
+    width: 100px;
+    height: auto;
+  }
+}
+/*Tablets*/
+@media (min-width: 576px) {
+
+}

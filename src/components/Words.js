@@ -2,15 +2,15 @@ import _ from 'underscore';
 
 export const wordList = [
   {
-    word: 'travis',
-    hint: 'Instructor'
+    word: 'daiquiri',
+    hint: 'tropical rum drink'
   },
   { 
     word:'bonjour',
     hint: 'Greeting'
   }, 
   {
-    word:'wine',
+    word:'vino',
     hint: 'Afternoon drink'
   },
   { 
@@ -38,8 +38,8 @@ export const wordList = [
     hint: 'machine in which all things are possible'
   },
   { 
-    word:'leilani',
-    hint: 'Instructor'
+    word:'excelsior',
+    hint: "Stan Lee's life motto"
   },
   { 
     word:'supercalifragilisticexpealodocious',
@@ -59,7 +59,7 @@ export const wordList = [
   },
   { 
     word:'modelviewcontroller',
-    hint: 'MVC'
+    hint: 'otherwise known as MVC'
   },
 ];
 

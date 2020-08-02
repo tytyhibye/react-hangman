@@ -75,7 +75,7 @@ class GameControl extends React.Component {
 
     return(
       <React.Fragment>
-        <div className="container">
+        <div className="container fadeIn">
           <div className="imageCard">
             <img className="hangMan" src={images[this.props.wrongGuesses]}alt="hangman"/>
             {console.log(this.props.wrongGuesses)}
@@ -83,12 +83,12 @@ class GameControl extends React.Component {
           <div>
             {/* <h4>Wrong Guesses: {this.props.wrongGuesses} / 6</h4> */}
             <p>{!gameOver ? this.secretWord() : <h4>The word was... {this.props.word}</h4>}</p> 
-            <br></br>
+            <br/>
             {!gameOver ? <LetterBoard guessedLetters={this.props.guesses} onLetterClick={this.handleGuess} /> : <p></p>}
 
             <p>{gameStatus}</p>
           </div>
-          <div className="hint">
+          <div className="hint fadeIn">
             {hintDisplayState}
           </div>
           <Button color='success' onClick={this.getHint}>Hint</Button>
