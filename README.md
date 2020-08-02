@@ -1,29 +1,29 @@
 ## Hangman
 
-### By: Tyler Bates, Chisato Murakami, Zinfira Safargalieva
+### By: Tyler Bates
 
 <hr/>
 
 ### Description
-Hangman is an application allowing the user six chances to guess the generated word and save the hangman avatar. The user can click on a letter in the displayed alphabet to guess that letter. If the guess is correct the letter will display in it's place in the word. If the guess is incorrect, a part of the avatar will display in the hangman card. The game ends when either all the blank letters are displayed or the entire hangman avatar is visible. If the user is struggling to guess there is a hint button that can be pressed to display a hint about the generated word.
+Hangman is a React application allowing the user six chances to guess the generated word and save the hangman avatar. Check it out [here](https://hangman-tyty.firebaseapp.com).
 <hr />
 
 
 ## Behavior Driven Development 
 
-|   Behavior Description        |
-|-------------------------------|
-| 1. Generate a word to guess from master list of words (obj) []|
-| 2. As a user, I want to see the length of the word first. (Displayed with underscores)[]|
-| 3. As a user, I want to click letters. (buttons? onClick func?) []|
-| 4. If the word has the letter(s) that I click, it will show up in the word. []|
-| 5. If the word does not have the letter(s) that I click, it will add a body part to a hangman. []|
-| 6. User may click "hint" button to display clue of what hidden word is. []|
-| 7. I can choose wrong letters only 5 times. []|
-| 8. When I guess wrong letters 6 times, I lose. (show result?) []|
-| 9. As a user, I want to be notified when I win or lose. []|
-| 10. As a user, I want to see the answer when I lose. []|
-| 11. When the game ends, I want to see 'Play again?' button. []|
+|   Behavior Description        ||
+|-------------------------------|------------------------------|
+|:heavy_check_mark: | 1. Generate a word to guess from master list of words (obj)|
+|:heavy_check_mark: | 2. As a user, I want to see the length of the word first. (Displayed with underscores)|
+| :heavy_check_mark:|3. As a user, I want to click letters. (buttons? onClick func?) |
+| :heavy_check_mark:|4. If the word has the letter(s) that I click, it will show up in the word. |
+|:heavy_check_mark: |5. If the word does not have the letter(s) that I click, it will add a body part to a hangman. |
+| :heavy_check_mark:|6. User may click "hint" button to display clue of what hidden word is. |
+|:heavy_check_mark: |7. I can choose wrong letters only 5 times. |
+|:heavy_check_mark: |8. When I guess wrong letters 6 times, I lose. (show result?) |
+|:heavy_check_mark: |9. As a user, I want to be notified when I win or lose. |
+| :heavy_check_mark:|10. As a user, I want to see the answer when I lose. |
+| :heavy_check_mark:|11. When the game ends, I want to see 'Play again?' button. |
 
 <hr />
 
@@ -33,75 +33,70 @@ Hangman is an application allowing the user six chances to guess the generated w
 
 <hr />
 
-## Instructions for Running Application
+## Setup/Installation Requirements
+
+1. Clone this projects repository into your local directory following [these](https://www.linode.com/docs/development/version-control/how-to-install-git-and-clone-a-github-repository/) instructions.
+
+2. Open the now local project folder with [VSC](https://code.visualstudio.com/Download) or an equivalent
+
+3. Navigate to the project directory from your terminal by entering the following:
+
+```
+$ cd ~/hangman
+```
+
+4. Within the projects directory install all required dependencies with
+
+```
+$ npm install
+```
+
+5. Run the application to view in your browser with
 
 ```
 $ npm run start
 ```
-Starts the live server in development mode.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> If the browser does not automatically launch, view the project [here](https://localhost:3000)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<hr/>
 
-```
-$ npm test
-```
+## Known Bugs
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### There are no known bugs at this time
 
-```
-$ npm run build
-```
+If you have a bug or an idea, browse the open issues before opening a new one. You can also take a look at the [Open Source Guide](https://opensource.guide/).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<hr/>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- JavaScript
+- React
+- Firebase
+- Redux
+- Reactstrap
+- Bootstrap
+- HTML
+- CSS
+- Git
 
-```
-$ npm run eject
-```
+<hr/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Legal
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Apache License V2.0
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Copyright 2020 Tyler Bates @ Epicodus
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-## Learn More
+http://www.apache.org/licenses/LICENSE-2.0
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
